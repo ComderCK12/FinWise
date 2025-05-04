@@ -1,0 +1,21 @@
+.dashboard {
+  padding: 20px;
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  width: 100vw; /* Makes the container expand fully horizontally */
+  box-sizing: border-box; /* Ensures padding doesn’t cause overflow */
+}
+
+.dashboard-containers {
+  display: flex;
+  justify-content: space-between; /* Distributes space evenly between the components */
+  gap: 20px; /* Adjusts space between child components */
+  width: 100%;
+}
+
+.dashboard-containers > div {
+  flex: 1; /* Ensures each child div takes up equal width */
+  min-width: 200px; /* Optional: set a minimum width for each component */
+}

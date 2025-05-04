@@ -1,0 +1,18 @@
+.creditScore {
+    color: blue;
+    font-size: 40px;
+}
+
+.networth {
+    color: green;
+    font-size: 40px;
+}
+
+.tax {
+    color: red;
+    font-size: 40px;
+}
+
+.card {
+    background-color: white;
+}

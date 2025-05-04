@@ -1,0 +1,57 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 97%;
+    background-color: ghostwhite;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* overflow: hidden; Prevents overflow of content */
+  }
+  
+  .navbar-brand h1 a {
+    color: blue;
+    font-weight: bold;
+    font-size: 40px;
+    margin: 0;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Reduced gap to prevent overflow */
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    /* padding: 0; */
+    gap: 30px; /* Reduced gap between links */
+    padding: 20px;
+  }
+  
+  .nav-links a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px 10px 20px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: gray;
+  }
+  
+  .profile-img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
