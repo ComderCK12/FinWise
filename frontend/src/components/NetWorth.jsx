@@ -1,13 +1,17 @@
-import React from 'react'
-import '../styles/Cards.css'
+import React from "react";
+import "../styles/Cards.css";
+import CountUp from "react-countup";
 
 const NetWorth = () => {
   return (
-    <div className='card'>
+    <div className="card">
       <h3>Net Worth</h3>
-      <p className='networth'>Rs 10,00,000</p>
+      <p className="networth">
+        Rs
+        <CountUp end={1000000} />
+      </p>
     </div>
-  )
-}
+  );
+};
 
-export default NetWorth
+export default NetWorth;
