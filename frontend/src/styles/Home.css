@@ -4,9 +4,14 @@
     
 }
 
+.home-container {
+  box-sizing: border-box;
+}
+
+
 .hero-section {
   position: relative;
-  height: 60vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,6 +85,7 @@
 }
 
 .footer {
+  width: 100%;
   background-color: #1a237e;
   color: #ffffff;
   padding: 1rem 0;

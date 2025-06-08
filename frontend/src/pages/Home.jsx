@@ -7,7 +7,7 @@ import HeroSection from "../components/HeroSection";
 const Home = () => {
   console.log("Home page");
   return (
-    <div>
+    <div className="home-container">
       {/* Hero Section */}
       <HeroSection />
 
