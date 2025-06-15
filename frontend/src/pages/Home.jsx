@@ -4,6 +4,7 @@ import "../styles/Home.css";
 import IncomeExpenseChart from "../components/IncomeExpenseChart";
 import HeroSection from "../components/HeroSection";
 import FinanceNewsSection from "../components/FinanceNewsSection";
+import MarketOverview from "../components/MarketOverview";
 
 const Home = () => {
   console.log("Home page");
@@ -16,6 +17,7 @@ const Home = () => {
       <div className="user-welcome">Hello World from home page</div>
 
       <FinanceNewsSection />
+      <MarketOverview />
 
       {/* <section className="finance-news-section">
         <h2 className="section-title">Latest Finance News</h2>

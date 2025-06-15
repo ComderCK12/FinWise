@@ -10,7 +10,7 @@
 html, body, #root {
   width: 100%;
   height: 100%;
-  background-color: white; /* Or ghostwhite if preferred */
+  background-color: black; /* Or ghostwhite if preferred */
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
 }
@@ -30,9 +30,9 @@ html, body, #root {
   left: 0;
   right: 0;
   height: 100px;
-  background-color: white;
+  background-color: black;
   z-index: 1000;
-
+  /* color: white; */
   display: flex;
   justify-content: space-between;
   align-items: center;

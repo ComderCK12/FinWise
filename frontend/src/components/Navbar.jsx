@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import ProfileImg from "../assets/images/profile.jpg";
@@ -8,13 +9,29 @@ import { auth } from "../firebase"; // 👈 Import auth instance
 
 const Navbar = () => {
   const { currentUser } = useAuth();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleLogout = () => {
-    signOut(auth).then(() => {
-      console.log("User logged out");
-    }).catch((error) => {
-      console.error("Logout error:", error);
-    });
+    signOut(auth)
+      .then(() => {
+        console.log("User logged out");
+      })
+      .catch((error) => {
+        console.error("Logout error:", error);
+      });
   };
 
   return (
@@ -27,25 +44,50 @@ const Navbar = () => {
 
       <div className="nav-right">
         <ul className="nav-links">
-          <li><Link to="/blogs">Blogs</Link></li>
-          <li><Link to="/networth">Networth</Link></li>
-          <li><Link to="/tax">Tax</Link></li>
-          <li><Link to="/credit">Credit Score</Link></li>
-          <li><Link to="/planaloan">Plan a Loan</Link></li>
+          <li>
+            <Link to="/blogs">Blogs</Link>
+          </li>
+          <li>
+            <Link to="/networth">Networth</Link>
+          </li>
+          <li>
+            <Link to="/tax">Tax</Link>
+          </li>
+          <li>
+            <Link to="/credit">Credit Score</Link>
+          </li>
+          <li>
+            <Link to="/planaloan">Plan a Loan</Link>
+          </li>
         </ul>
 
         {currentUser ? (
-          <div className="auth-section">
-            <div className="user-info">
-              <span>{currentUser.displayName || currentUser.email}</span>
-              <div className="profile-img">
-                <img src={ProfileImg} alt="Profile" />
-              </div>
+          <div className="auth-section" ref={dropdownRef}>
+            <div className="profile-dropdown">
+              <img
+                src={currentUser.photoURL || ProfileImg}
+                alt="Profile"
+                className="profile-img"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+              />
+              {dropdownOpen && (
+                <div className="dropdown-menu">
+                  <p className="dropdown-name">
+                    {currentUser.displayName || currentUser.email}
+                  </p>
+                  <Link to="/profile">User Profile</Link>
+                  <Link to="/contact">Contact Me</Link>
+                  <button onClick={handleLogout} className="logout-btn">
+                    Logout
+                  </button>
+                </div>
+              )}
             </div>
-            <button onClick={handleLogout} className="logout-btn">Logout</button>
           </div>
         ) : (
-          <Link to="/login" className="login-link">Login</Link>
+          <Link to="/login" className="login-link">
+            Login
+          </Link>
         )}
       </div>
     </nav>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Silk from "../effects/Silk";
 import "../styles/Home.css";
 
 const HeroSection = () => {
@@ -19,13 +20,12 @@ const HeroSection = () => {
     const delayBetweenLines = 3000;
 
     const timeout = setTimeout(() => {
-      setIsVisible(false); // fade out
+      setIsVisible(false);
 
       setTimeout(() => {
-        // Change text after fade out
         setDisplayedLine(messages[(currentIndex + 1) % messages.length]);
         setCurrentIndex((prev) => (prev + 1) % messages.length);
-        setIsVisible(true); // fade in
+        setIsVisible(true);
       }, fadeOutDuration);
     }, delayBetweenLines);
 
@@ -34,6 +34,10 @@ const HeroSection = () => {
 
   return (
     <div className="hero-section">
+      <div className="canvas-background">
+        <Silk color="#1a237e" speed={4} noiseIntensity={2} />
+      </div>
+
       <h1 className="hero-title">{staticHeading}</h1>
       <p className={`hero-subtitle ${isVisible ? "fade-in" : "fade-out"}`}>
         {displayedLine}

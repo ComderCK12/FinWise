@@ -18,7 +18,7 @@ public class NewsController {
 	
 	@GetMapping
 	public ResponseEntity<String> getFinanceNews() {
-		String url = "https://newsapi.org/v2/everything?q=finance&language=en&pageSize=6&sortBy=publishedAt&apiKey=" + apiKey;
+		String url = "https://newsapi.org/v2/everything?q=finance&language=en&pageSize=10&sortBy=publishedAt&apiKey=" + apiKey;
         RestTemplate restTemplate = new RestTemplate();
         String response = restTemplate.getForObject(url, String.class);
         return ResponseEntity.ok(response);
