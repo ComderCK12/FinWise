@@ -16,9 +16,10 @@
   }
   
   .navbar-brand h1 a {
-    color: blue;
+    color: black;
     font-weight: bold;
     font-size: 40px;
+    text-decoration: none;
     margin: 0;
   }
   

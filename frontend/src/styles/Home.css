@@ -149,3 +149,60 @@
     height: 250px;
   }
 }
+
+
+/* CSS for sections */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 2rem 0 1rem;
+  color: #1a237e;
+}
+
+.finance-news-section,
+.finance-tips-section {
+  padding: 0 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.news-cards,
+.tips-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.news-card,
+.tip-card {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  width: 90%;
+  max-width: 400px;
+  color: black;
+}
+
+.news-card h3,
+.tip-card h3 {
+  color: #3f51b5;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.news-card p,
+.tip-card p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .news-cards,
+  .tips-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+}
